@@ -1,0 +1,33 @@
+﻿@model AllPartsModel
+@{
+    ViewData["Title"] = "AllParts";
+}
+<h2>AllParts</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var part in Model.Parts)
+        {
+            <tr>
+                <td>@part.Name</td>
+                <td>@($"{part.Price:F2}")</td>
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        <a href="/parts/edit/@part.Id" class="btn btn-warning">Edit</a>
+                        <a href="/parts/delete/@part.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                }                
+            </tr>
+        }
+    </tbody>
+</table>

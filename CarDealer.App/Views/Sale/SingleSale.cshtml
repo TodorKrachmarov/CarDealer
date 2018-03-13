@@ -1,0 +1,21 @@
+﻿@model SingleSaleModel
+
+@{
+    ViewData["Title"] = "SingleSale";
+}
+<a href="/sales" class="btn-group-lg">Back</a>
+<h1>Sale Details</h1>
+<hr />
+<h2>Car</h2>
+<h2>Manufacturer - @Model.CarMake</h2>
+<h2>Model - @Model.CarModel</h2>
+<h2>Travelled Distance - @Model.CarTravelledDistance</h2>
+<hr />
+<h2>Customer</h2>
+<h2>Name - @Model.CustomerName</h2>
+<hr />
+<h2>Price - @Model.Price</h2>
+<h2>Price With Discount @Model.PriceWithDis</h2>
+<h2>Discount - @Model.Discount</h2>
+
+

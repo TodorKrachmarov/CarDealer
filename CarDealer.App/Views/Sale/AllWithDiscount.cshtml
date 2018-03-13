@@ -1,0 +1,44 @@
+﻿@model ListAllSalesModel
+@{
+    ViewData["Title"] = "All Sales";
+}
+<h2>All Sales With Discount</h2>
+<a href="/sales" class="btn-group-lg">Back</a>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Car Model
+            </th>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Price Without Discount
+            </th>
+            <th>
+                Price With Discount
+            </th>
+            <th>
+                Discount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sale in Model.Sales)
+        {
+            <tr>
+                <td><a href="/sales/@sale.Id" class="btn-xs">@sale.Id</a></td>
+                <td>@sale.CarModel</td>
+                <td>@sale.CustomerName</td>
+                <td>@sale.Price</td>
+                <td>@sale.PriceWithDis</td>
+                <td><a href="/sales/discounted/@sale.Discount" class="btn-xs">@sale.Discount</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

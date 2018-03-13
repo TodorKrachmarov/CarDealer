@@ -1,0 +1,16 @@
+﻿@model CreateCustomerModel
+
+<h2>Add Customer</h2>
+<hr />
+<form method="post">
+    Name:
+    <input asp-for="Name"/>
+    <span asp-validation-for="Name"></span>
+    <br />
+    Birth Date:
+    <input asp-for="BirthDate"/>
+    <span asp-validation-for="BirthDate"></span>
+    <br />
+    <input type="submit" value="Add Customer"/>
+</form>
+

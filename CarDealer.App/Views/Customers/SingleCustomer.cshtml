@@ -1,0 +1,13 @@
+﻿@model SingleCustomerModel
+@{
+    ViewData["Title"] = "SingleCustomer";
+}
+
+<a href="/customers/all/assending" class="btn-sm btn-lg">Back</a>
+
+<h2>@Model.Name</h2>
+<h3>Total Sales - @Model.SalesCount</h3>
+<h3>Total Cost - @Model.TotalPrice</h3>
+<hr />
+<a href="/customers/edit/@Model.Id" class="btn-warning btn-sm">Edit Customer</a>
+

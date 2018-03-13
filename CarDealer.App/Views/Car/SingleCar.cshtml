@@ -1,0 +1,33 @@
+﻿@model SingleCarModel
+@{
+    ViewData["Title"] = "SingleCar";
+}
+
+<a href="/cars" class="btn-group-lg">Back</a>
+
+<h2>@Model.Make - @Model.Model</h2>
+<h4>Travel Distance - @Model.TravelledDistance</h4>
+<br />
+<h4>Parts</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var part in Model.Parts)
+        {
+            <tr>
+                <td>@part.Name</td>
+                <td>@part.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

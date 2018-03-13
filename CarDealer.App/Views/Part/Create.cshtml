@@ -1,0 +1,40 @@
+﻿@model AddPartModel
+@{
+    ViewData["Title"] = "Create";
+}
+<h2>Add Part</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="Name">Name:</label>
+                <input asp-for="Name" required class="form-control" />
+                <span asp-validation-for="Name" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price">Price:</label>
+                <input asp-for="Price" required class="form-control" />
+                <span asp-validation-for="Price" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity">Quantity:</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId">Supplier:</label>
+                <select asp-for="SupplierId" required class="form-control">
+                    @foreach (var s in Model.Suppliers)
+                    {
+                        <option value="@s.Id">@s.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="SupplierId" class="form-text text-danger"></span>
+            </div>
+            <div>
+                <input class="btn btn-success" type="submit" value="Add Part" />
+            </div>
+        </form>
+    </div>
+</div>

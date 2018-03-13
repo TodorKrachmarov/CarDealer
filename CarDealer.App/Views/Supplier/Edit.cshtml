@@ -1,0 +1,28 @@
+﻿@model EditSupplierModel
+
+@{
+    ViewData["Title"] = "Edit Supplier";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" required class="form-control" />
+                <span asp-validation-for="Name" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="IsImporter" />
+                <label asp-for="IsImporter"></label>
+                <span asp-validation-for="IsImporter" class="form-text text-danger"></span>
+            </div>
+            <div>
+                <a href="/suppliers" class="btn btn-info">Back</a>
+                <input class="btn btn-success" type="submit" value="Edit Supplier" />
+            </div>
+        </form>
+    </div>
+</div>

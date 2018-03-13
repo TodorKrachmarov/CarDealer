@@ -1,0 +1,41 @@
+﻿@model AllCustomersModel
+@{
+    ViewData["Title"] = "All Customers";
+}
+<h2>All Customers</h2>
+<h3>
+    Ordered in @(Model.OrderDirection.ToString().ToLower()) direction.
+</h3>
+<form class="form-control">
+    <a href="/customers/all/assending" class="btn-sm btn-lg">Assending</a>
+    <a href="/customers/all/dessending" class="btn-sm btn-lg">Dessending</a>
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                BirthDay
+            </th>
+            <th>
+                Is Young Driver
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td><a href="/customers/@customer.Id">@customer.Name</a></td>
+                <td>@customer.BirthDate.ToShortDateString()</td>
+                <td>@(customer.IsYoungDriver ? "Yes" : "No")</td>
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                    <td><a href="/customers/edit/@customer.Id" class="btn btn-warning">Edit Customer</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
